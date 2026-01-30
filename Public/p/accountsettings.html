@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings | Illurdraw</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../css/accountsettings.css">
+    <link rel="stylesheet" href="../css/root.css">
+    <link rel="icon" type="image/x-icon" href="../logo&favicon/favicon>2.0.ico">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">
+            <img src="../logo&favicon/logo.png" width="50px" alt="logo">
+            Illurdraw
+        </a>
+        <div class="user-nav">
+            <div class="avatar-circle" id="header-avatar-btn">
+                <img id="header-avatar-img" src="https://api.dicebear.com/7.x/bottts/svg?seed=Felix&backgroundColor=b6e3f4&size=100" alt="User">
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Account Settings</h1>
+            <p>Manage your professional identity and workspace preferences.</p>
+        </div>
+
+        <!-- Profile Settings -->
+        <div class="section-card">
+            <svg class="card-pattern" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1">
+                <circle cx="50" cy="50" r="40" />
+                <path d="M50 10v80M10 50h80" />
+            </svg>
+            
+            <h2 class="section-title"><i class="fa-solid fa-id-card"></i> Public Profile</h2>
+            
+            <div class="profile-header">
+                <div class="large-avatar">
+                    <img id="display-avatar-img" src="https://api.dicebear.com/7.x/bottts/svg?seed=Felix&backgroundColor=b6e3f4&size=100" alt="Avatar">
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 8px;">Profile Photo</h4>
+                    <button class="btn btn-outline" id="btn-open-picker">
+                        <i class="fa-solid fa-camera"></i> Change Avatar
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="field-name" placeholder="E.g. Alex Rivera">
+                </div>
+            </div>
+            <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
+                <button class="btn btn-primary" id="btn-save-profile">Save Changes</button>
+            </div>
+        </div>
+
+
+        <!-- Account Security -->
+        <div class="section-card">
+            <h2 class="section-title"><i class="fa-solid fa-shield-halved"></i> Security</h2>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" id="field-email" disabled style="background: #f1f5f9; color: #94a3b8; cursor: not-allowed; border-style: dashed;">
+            </div>
+            
+            <div style="padding: 20px; background: #f8fafc; border-radius: 16px; margin-top: 8px;">
+                <h4 style="font-size: 0.9rem; margin-bottom: 15px;">Update Password</h4>
+                <div class="form-grid">
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <input type="password" placeholder="New Password">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <input type="password" placeholder="Confirm New Password">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Danger Zone -->
+        <div class="section-card" style="border-color: #fee2e2;">
+            <h2 class="section-title" style="color: #b91c1c;"><i class="fa-solid fa-circle-exclamation"></i> Danger Zone</h2>
+            <p style="font-size: 0.95rem; color: #7f1d1d; margin-bottom: 24px; opacity: 0.8;">Permanently delete your account and all associated creative assets. This action is immediate and cannot be reversed.</p>
+            <button class="btn btn-danger" id="btn-open-delete">
+                <i class="fa-solid fa-trash-can"></i> Delete My Account
+            </button>
+        </div>
+    </div>
+
+    <!-- Avatar Picker Modal -->
+    <div class="modal-backdrop" id="modal-avatar">
+        <div class="modal">
+            <h2 style="margin-bottom: 12px; letter-spacing: -1px;">Select Avatar</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Choose a high-fidelity glass morphism persona for your studio profile.</p>
+            
+            <div class="avatar-picker-grid" id="picker-grid"></div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px;">
+                <button class="btn btn-primary" id="btn-confirm-avatar">Update Profile</button>
+                <button class="btn btn-outline" id="btn-close-picker">Dismiss</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Verification Modal -->
+    <div class="modal-backdrop" id="modal-delete">
+        <div class="modal">
+            <h2 style="color: var(--danger); margin-bottom: 12px; letter-spacing: -1px;">Delete Account?</h2>
+            <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 24px;">Please confirm your account email and password to proceed with deletion.</p>
+            
+            <div class="form-group">
+                <label>Confirm Email</label>
+                <input type="email" id="del-verify-email" placeholder="you@example.com">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="del-verify-pass" placeholder="Your password">
+            </div>
+
+            <div style="margin-top: 32px; display: flex; flex-direction: column; gap: 12px;">
+                <button class="btn btn-danger" id="btn-final-delete" style="width: 100%; background: var(--danger); color: white;">Permanently Delete</button>
+                <button class="btn btn-outline" id="btn-close-delete" style="width: 100%;">Keep My Account</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>Changes saved successfully!</span>
+    </div>
+    <script type="module" src="../../backend/js/settings.js"></script>
+
+</body>
+</html>

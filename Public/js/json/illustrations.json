@@ -1,0 +1,112 @@
+{
+    "illustrations": [
+        {
+            "id": 1,
+            "title": "Icons",
+            "url": "../hero/icons.png",
+            "description": "Simple icons",
+            "aspect_ratio": "1:1",
+            "creation_date": "2023-05-10",
+            "tags": ["2D", "icons"],
+            "dimentions": {
+                "width": 800,
+                "height": 800
+            },
+            "code": {
+                "html": "<img src=\"../hero/icons.png\" alt=\"Icons\">",
+                "react": "<img src=\"../hero/icons.png\" alt=\"Icons\" />"
+            },
+            "price": "Free"
+        },
+        {
+            "id": 2,
+            "title": "Animated illustrations",
+            "url": "../hero/animated.png",
+            "description": "Animated illustrations",
+            "aspect_ratio": "1:1",
+            "creation_date": "2023-05-11",
+            "tags": ["2D", "animation"],
+            "dimentions": {
+                "width": 800,
+                "height": 800
+            },
+            "code": {
+                "html": "<img src=\"../hero/animated.png\" alt=\"Animated illustrations\">",
+                "react": "<img src=\"../hero/animated.png\" alt=\"Animated illustrations\" />"
+            },
+            "price": "Pro"
+        },
+        {
+            "id": 3,
+            "title": "UIkit",
+            "url": "../hero/uikit.png",
+            "description": "Developer ui components",
+            "aspect_ratio": "1:1",
+            "creation_date": "2023-05-12",
+            "tags": ["2D", "ui", "components"],
+            "dimentions": {
+                "width": 800,
+                "height": 800
+            },
+            "code": {
+                "html": "<img src=\"../hero/uikit.png\" alt=\"UIkit\">",
+                "react": "<img src=\"../hero/uikit.png\" alt=\"UIkit\" />"
+            },
+            "price": "Free"
+        },
+        {
+            "id": 4,
+            "title": "3D library",
+            "url": "../hero/3D.png",
+            "description": "3D models and scenes",
+            "aspect_ratio": "1:1",
+            "creation_date": "2023-05-13",
+            "tags": ["3D", "models"],
+            "dimentions": {
+                "width": 800,
+                "height": 800
+            },
+            "code": {
+                "html": "<img src=\"../hero/3D.png\" alt=\"3D library\">",
+                "react": "<img src=\"../hero/3D.png\" alt=\"3D library\" />"
+            },
+            "price": "Pro"
+        },
+        {
+            "id": 5,
+            "title": "2D Library",
+            "url": "../hero/2D.png",
+            "description": "2D illustrations and assets",
+            "aspect_ratio": "1:1",
+            "creation_date": "2023-05-14",
+            "tags": ["2D", "illustrations"],
+            "dimentions": {
+                "width": 800,
+                "height": 800
+            },
+            "code": {
+                "html": "<img src=\"../hero/2D.png\" alt=\"2D Library\">",
+                "react": "<img src=\"../hero/2D.png\" alt=\"2D Library\" />"
+            },
+            "price": "Free"
+        },
+        {
+            "id": 6,
+            "title": "People",
+            "url": "../hero/people.png",
+            "description": "Illustrations, images & more",
+            "aspect_ratio": "1:1",
+            "creation_date": "2023-05-15",
+            "tags": ["2D", "people"],
+            "dimentions": {
+                "width": 800,
+                "height": 800
+            },
+            "code": {
+                "html": "<img src=\"../hero/people.png\" alt=\"People\">",
+                "react": "<img src=\"../hero/people.png\" alt=\"People\" />"
+            },
+            "price": "Free"
+        }
+    ]
+}

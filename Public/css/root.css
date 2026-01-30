@@ -1,0 +1,31 @@
+        :root {
+            --dark-1: #1b262c; 
+            --dark-2: #0f4c75; 
+            --blue-mid: #3282b8; 
+            --blue-light: #bbe1fa; 
+            --white: #ffffff;
+            --text-main: #1b262c;
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            --white: #ffffff;
+            --text: #1b262c;
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            --error: #ef4444;
+            --success: #22c55e;
+            --warning: #f59e0b;
+
+            
+            --sidebar-width: 260px;
+            /* Code Colors */
+            --code-bg: #0f172a;
+            --code-tag: #f472b6;
+            --code-attr: #38bdf8;
+            --code-string: #4ade80;
+            --code-keyword: #c084fc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio | Illurdraw</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/root.css">
+    <link rel="icon" type="image/x-icon" href="../logo&favicon/favicon2.0.ico">
+        <!-- Illurdraw Icon System -->
+         <div id="noscriptjs"></div>
+         <script>
+            // noscript fetch
+            fetch("./noscript.html")
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector('#noscriptjs').innerHTML = data;
+            });
+
+         </script>
+    <style>
+        /* Illurdraw Icon System */
+        [class^="illd-"]:before, [class*=" illd-"]:before {
+            display: inline-block;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            line-height: 1;
+            font-family: 'Illurdraw Icons';
+        }
+
+        .illd-2d:before { content: url("../hero/2D.png"); width: 1em; height: 1em; }
+        .illd-icons:before { content: url("../hero/icons.png"); width: 1em; height: 1em; }
+        .illd-people:before { content: url("../hero/people.png"); width: 1em; height: 1em; }
+        .illd-3d:before { content: url("../hero/3D.png"); width: 1em; height: 1em; }
+        .illd-animated:before { content: url("../hero/animated.png"); width: 1em; height: 1em; }
+        .illd-uikit:before { content: url("../hero/uikit.png"); width: 1em; height: 1em; }
+
+        /* Size modifiers */
+        .illd-sm:before { width: 0.8em; height: 0.8em; }
+        .illd-lg:before { width: 1.2em; height: 1.2em; }
+        .illd-xl:before { width: 1.5em; height: 1.5em; }
+
+        /* Spinning animation */
+        .illd-spin { animation: illd-spin 2s infinite linear; }
+        @keyframes illd-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body style="--grid-cols: 4;">
+
+    <header>
+        <a href="#" class="logo">
+            <img src="../logo&favicon/logo.png" width="50px" alt="logo">
+             Illurdraw
+        </a>
+        <div class="nav-right">
+            <div class="avatar-container">
+                <div class="avatar" id="avatar-btn">?</div>
+                <div class="user-popup" id="user-popup">
+                    <div style="text-align:center; padding: 15px; border-bottom: 1px solid var(--border)">
+                        <strong id="user-name" style="display:block">...</strong>
+                        <small id="user-email" style="color:var(--text-muted)">...</small>
+                    </div>
+                    <div style="padding: 10px">
+                        <button id="logout-btn" style="width:100%; padding:10px; border:none; background:#fee2e2; color:#ef4444; border-radius:8px; font-weight:700; cursor:pointer">
+                            Log Out
+                        </button>
+                         <button onclick="location.href = 'accountsettings.html'" id="settings-btn" style="width:100%; padding:10px; margin-top: 20px; border:none; background:#0c000096; color:#ffffff; border-radius:8px; font-weight:700; cursor:pointer">
+                            <i class="fa-etch fa-solid fa-gear"></i> Settings
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <!-- Sidebar Filters -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-section">
+                <span class="sidebar-title">Categories</span>
+                <ul class="filter-list">
+                    <li class="filter-item active" data-filter="all"><i class="fa-solid fa-house"></i> All Items</li>
+                    <li class="filter-item" data-filter="2D"><i class="fa-solid fa-layer-group"></i> 2D Design</li>
+                    <li class="filter-item" style="cursor:no-drop;"><i class="fa-solid fa-cube"></i> 3D Renders <sup style="font-size: xx-small; color: grey;">comming soon</sup></li>
+                    <li class="filter-item" style="cursor: no-drop;"><i class="fa-solid fa-icons"></i> Icons <sup style="font-size: xx-small; color: grey;">comming soon</sup></li>
+                    <li class="filter-item" style="cursor: no-drop;"><i class="fa-solid fa-play"></i> Animated <sup style="font-size: xx-small; color: grey;">comming soon</sup></li>
+                    <li class="filter-item" data-filter="People"><i class="fa-solid fa-user-group"></i> People</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content-area">
+            <div class="controls-bar">
+                <div class="search-wrapper">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" class="search-box" id="search-input" placeholder="Search illustrations...">
+                </div>
+
+                <div class="right-controls">
+                    <button class="btn-toggle-filter" id="filter-toggle">
+                        <i class="fa-solid fa-sliders"></i> Filters
+                    </button>
+                    <div class="grid-switcher">
+                        <button class="grid-btn" data-cols="2">2x2</button>
+                        <button class="grid-btn" data-cols="3">3x3</button>
+                        <button class="grid-btn active" data-cols="4">4x4</button>
+                        <button class="grid-btn" data-cols="5">5x5</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="illustration-grid" id="grid">
+                <!-- Cards injected here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modal-overlay">
+        <button class="close-modal" id="close-modal"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal-content">
+            <div class="modal-preview">
+                <img src="" alt="" id="m-img">
+            </div>
+            <div class="modal-info">
+                <div>
+                    <h2 id="m-title" style="font-size: 1.5rem; font-weight: 800; margin-bottom: 5px;"></h2>
+                    <p id="m-desc" style="color: var(--text-muted); font-size: 0.95rem;"></p>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <div class="spec-box" style="background: #f8fafc; padding: 10px; border-radius: 10px; flex: 1;">
+                        <span style="font-size: 0.65rem; color: var(--text-muted); text-transform: uppercase;">Type</span>
+                        <div id="m-type" style="font-weight: 700; font-size: 0.85rem;"></div>
+                    </div>
+                </div>
+                <div class="code-container">
+                    <div class="code-header">
+                        <span id="code-type-label" style="color: white; font-size: 0.7rem; font-weight: 800;">HTML CODE</span>
+                        <button class="copy-btn" onclick="copyCode()"><i class="fa-regular fa-copy"></i> Copy</button>
+                    </div>
+                    <div class="code-block" id="embed-code"></div>
+                </div>
+                <div class="code-container" style="margin-top: 15px;">
+                    <div class="code-header">
+                        <span style="color: white; font-size: 0.7rem; font-weight: 800;">CDN SVG URL</span>
+                        <button class="copy-btn" onclick="copyCdnUrl()"><i class="fa-regular fa-copy"></i> Copy</button>
+                    </div>
+                    <div class="code-block" id="cdn-url"></div>
+                </div>
+                <i>
+                <button style="margin-top:auto; background:var(--dark-1); color:white; border:none; padding:16px; border-radius:12px; font-weight:800; cursor:pointer">
+                    Download Asset
+                </button>
+                <button style="margin-top:auto; background:var(--dark-1); color:white; border:none; padding:16px; border-radius:12px; font-weight:800; cursor:pointer">
+                    <i class="fa-thin fa-brush" style="margin-right: 10px; color: #ffffff;"></i>Costomize & Edit
+                </button>
+            </i>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../../backend/js/home.js"></script>
+</body>
+</html>
