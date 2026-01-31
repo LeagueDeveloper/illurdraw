@@ -86,7 +86,7 @@
         // Load illustrations from JSON for search
         async function loadIllustrations() {
             try {
-                const response = await fetch('./backend/js/json/illustrations.json');
+                const response = await fetch('/Public/backend/js/json/illustrations.json');
                 if (response.ok) {
                     const data = await response.json();
                     illustrations = data.illustrations || [];

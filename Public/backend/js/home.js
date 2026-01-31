@@ -27,7 +27,7 @@
 
         async function loadIllustrations() {
             try {
-                const response = await fetch('../../backend/js/json/illustrations.json');
+                const response = await fetch('/Public/backend/js/json/illustrations.json');
 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);

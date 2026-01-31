@@ -236,7 +236,7 @@ button{
 
   async function loadIllustrationById(id){
     try{
-      const res = await fetch('../../backend/js/json/illustrations.json');
+      const res = await fetch('/Public/backend/js/json/illustrations.json');
       const data = await res.json();
       const item = data.illustrations.find(x => String(x.id) === String(id));
       if(!item){ titleEl.innerText = 'Illustration not found'; return; }

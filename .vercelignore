@@ -1,0 +1,7 @@
+node_modules
+.git
+.next
+.env.local
+cdn/
+test-cdn.html
+test.html
