@@ -1,8 +1,28 @@
 {
-  "builds": [
-    { "src": "Public/**", "use": "@vercel/static" }
-  ],
-  "routes": [
-    { "src": "/(.*)", "dest": "/index.html" }
+  "buildCommand": "echo 'Static site - no build needed'",
+  "outputDirectory": "Public",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/p/(.*)",
+      "destination": "/p/$1"
+    },
+    {
+      "source": "/backend/(.*)",
+      "destination": "/backend/$1"
+    },
+    {
+      "source": "/costomization/(.*)",
+      "destination": "/costomization/$1"
+    },
+    {
+      "source": "/categiories/(.*)",
+      "destination": "/categiories/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
