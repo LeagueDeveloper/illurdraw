@@ -2,111 +2,186 @@
     "illustrations": [
         {
             "id": 1,
-            "title": "Hugging Friends",
-            "url": "../../backend/svgs/people/frindsHugging.svg",
+            "title": "5-people-hugging",
+            "url": "../categiories/people/5-people-hugging.png",
             "description": "People",
-            "aspect_ratio": "1:1",
+            "aspect_ratio": "16:9",
             "creation_date": "2023-05-10",
-            "tags": ["people", "2D"],
-            "dimentions": {
-                "width": 800,
-                "height": 800
-            },
+            "tags": ["people", "2D", "friends"],
             "code": {
                 "html": "<img src=\"../hero/icons.png\" alt=\"Icons\">",
                 "react": "<img src=\"../hero/icons.png\" alt=\"Icons\" />"
             },
-            "price": "Free"
+            "costomizable": false
         },
         {
             "id": 2,
-            "title": "Animated illustrations",
-            "url": "../hero/animated.png",
+            "title": "3-walking-people",
+            "url": "../categiories/people/3-walking-people.png",
             "description": "Animated illustrations",
-            "aspect_ratio": "1:1",
+            "aspect_ratio": "9:16",
             "creation_date": "2023-05-11",
-            "tags": ["2D", "animation"],
-            "dimentions": {
-                "width": 800,
-                "height": 800
-            },
+            "tags": ["people", "2D"],
             "code": {
                 "html": "<img src=\"../hero/animated.png\" alt=\"Animated illustrations\">",
                 "react": "<img src=\"../hero/animated.png\" alt=\"Animated illustrations\" />"
             },
-            "price": "Pro"
+            "costomizable": false
         },
         {
             "id": 3,
-            "title": "UIkit",
-            "url": "../hero/uikit.png",
-            "description": "Developer ui components",
-            "aspect_ratio": "1:1",
+            "title": "4-People-Greeting",
+            "url": "../categiories/people/people-greeting.png",
+            "description": "People greeting each other",
+            "aspect_ratio": "16:9",
             "creation_date": "2023-05-12",
-            "tags": ["2D", "ui", "components"],
-            "dimentions": {
-                "width": 800,
-                "height": 800
-            },
+            "tags": ["people", "2D", "greeting"],
             "code": {
-                "html": "<img src=\"../hero/uikit.png\" alt=\"UIkit\">",
-                "react": "<img src=\"../hero/uikit.png\" alt=\"UIkit\" />"
+                "html": "<img src=\"../hero/business.png\" alt=\"Business Meeting\">",
+                "react": "<img src=\"../hero/business.png\" alt=\"Business Meeting\" />"
             },
-            "price": "Free"
-        },
-        {
+            "costomizable": false
+        },{
             "id": 4,
-            "title": "3D library    ",
-            "url": "../hero/3D.png",
-            "description": "3D models and scenes",
-            "aspect_ratio": "1:1",
+            "title": "3-People-discussing",
+            "url": "../categiories/people/3-people-discussing.png",
+            "description": "Business Meeting",
+            "aspect_ratio": "16:9",
             "creation_date": "2023-05-13",
-            "tags": ["3D", "models"],
-            "dimentions": {
-                "width": 800,
-                "height": 800
-            },
+            "tags": ["people", "2D", "meeting"],
             "code": {
-                "html": "<img src=\"../hero/3D.png\" alt=\"3D library\">",
-                "react": "<img src=\"../hero/3D.png\" alt=\"3D library\" />"
+                "html": "<img src=\"../hero/meeting.png\" alt=\"Business Meeting\">",
+                "react": "<img src=\"../hero/meeting.png\" alt=\"Business Meeting\" />"
             },
-            "price": "Pro"
+            "costomizable": false
         },
         {
             "id": 5,
-            "title": "2D Library",
-            "url": "../hero/2D.png",
-            "description": "2D illustrations and assets",
-            "aspect_ratio": "1:1",
+            "title": "Flame-bg",
+            "url": "../categiories/bg/bg-flame.png",
+            "description": "Flame background",
+            "aspect_ratio": "16:9",
             "creation_date": "2023-05-14",
-            "tags": ["2D", "illustrations"],
-            "dimentions": {
-                "width": 800,
-                "height": 800
-            },
+            "tags": ["background", "2D", "flame","red"],
             "code": {
-                "html": "<img src=\"../hero/2D.png\" alt=\"2D Library\">",
-                "react": "<img src=\"../hero/2D.png\" alt=\"2D Library\" />"
+                "html": "<img src=\"../hero/collaboration.png\" alt=\"People Collaborating\">",
+                "react": "<img src=\"../hero/collaboration.png\" alt=\"People Collaborating\" />"
             },
-            "price": "Free"
+            "costomizable": false
         },
         {
             "id": 6,
-            "title": "People",
-            "url": "../hero/people.png",
-            "description": "Illustrations, images & more",
-            "aspect_ratio": "1:1",
+            "title": "gradient-bg-dots",
+            "url": "../categiories/bg/bg-gradient-dots.png",
+            "description": "Gradient dots background",
+            "aspect_ratio": "16:9",
             "creation_date": "2023-05-15",
-            "tags": ["2D", "people"],
-            "dimentions": {
-                "width": 800,
-                "height": 800
-            },
+            "tags": ["background", "2D", "abstract","blue"],
             "code": {
-                "html": "<img src=\"../hero/people.png\" alt=\"People\">",
-                "react": "<img src=\"../hero/people.png\" alt=\"People\" />"
+                "html": "<img src=\"../hero/brainstorming.png\" alt=\"Brainstorming Session\">",
+                "react": "<img src=\"../hero/brainstorming.png\" alt=\"Brainstorming Session\" />"
             },
-            "price": "Free"
+            "costomizable": false
+        },
+        {
+            "id": 7,
+            "title": "light-rainbow",
+            "url": "../categiories/bg/bg-light-rainbow.png",
+            "description": "Light rainbow background",
+            "aspect_ratio": "16:9",
+            "creation_date": "2023-05-16",
+            "tags": ["background", "2D", "abstract","rainbow"],
+            "code": {
+                "html": "<img src=\"../hero/teamwork.png\" alt=\"Teamwork\">",
+                "react": "<img src=\"../hero/teamwork.png\" alt=\"Teamwork\" />"
+            },
+            "costomizable": false
+        },
+        {
+            "id": 8,
+            "title": "shapes-colors-bg",
+            "url": "../categiories/bg/bg-p,g,r-blue-shapes.png",
+            "description": "Abstract waves background",
+            "aspect_ratio": "16:9",
+            "creation_date": "2023-05-17",
+            "tags": ["background", "2D", "abstract","waves"],
+            "code": {
+                "html": "<img src=\"../hero/creativity.png\" alt=\"Creativity\">",
+                "react": "<img src=\"../hero/creativity.png\" alt=\"Creativity\" />"
+            },
+            "costomizable": false
+        },
+        {
+            "id": 9,
+            "title": "Perple-red-glassy-bg",
+            "url": "../categiories/bg/bg-perple-red-glass.png",
+            "description": "Perple red glassy background",
+            "aspect_ratio": "16:9",
+            "creation_date": "2023-05-18",
+            "tags": ["background", "2D", "abstract","perple","red"],
+            "code": {
+                "html": "<img src=\"../hero/innovation.png\" alt=\"Innovation\">",
+                "react": "<img src=\"../hero/innovation.png\" alt=\"Innovation\" />"
+            },
+            "costomizable": false
+        },
+        {
+            "id": 10,
+            "title": "strokes-green-yellow-bg",
+            "url": "../categiories/bg/bg-strokes-green-yellow.png",
+            "description": "Green and yellow strokes background",
+            "aspect_ratio": "16:9",
+            "creation_date": "2023-05-19",
+            "tags": ["background", "2D", "abstract","green","yellow"],
+            "code": {
+                "html": "<img src=\"../hero/growth.png\" alt=\"Growth\">",
+                "react": "<img src=\"../hero/growth.png\" alt=\"Growth\" />"
+            },
+            "costomizable": false
+        },
+        {
+            "id": 11,
+            "title": "sunset-landscape-bg",
+            "url": "../categiories/bg/bg-sunset-landscape.png",
+            "description": "Sunset landscape background",
+            "aspect_ratio": "16:9",
+            "creation_date": "2023-05-20",
+            "tags": ["customizable", "2D", "editable"],
+            "code": {
+                "html": "<img src=\"../hero/customizable.png\" alt=\"Customizable Illustration\">",
+                "react": "<img src=\"../hero/customizable.png\" alt=\"Customizable Illustration\" />"
+            },
+            "costomizable": false
+        }
+        ,
+        {
+            "id": 12,
+            "title": "ghost-pumpkin",
+            "url": "../categiories/2D/ghost-pumpkin.svg",
+            "description": "Cute Halloween ghost holding a carved pumpkin",
+            "aspect_ratio": "4:3",
+            "creation_date": "2026-01-31",
+            "tags": ["2D", "seasonal", "halloween"],
+            "code": {
+                "html": "<img src=\"../categiories/2D/ghost-pumpkin.svg\" alt=\"Ghost Pumpkin\">",
+                "react": "<img src=\"../categiories/2D/ghost-pumpkin.svg\" alt=\"Ghost Pumpkin\" />"
+            },
+            "customizable": true
+        },
+        {
+            "id": 13,
+            "title": "graph-finance",
+            "url": "../categiories/2D/finace.svg",
+            "description": "Financial data visualization with abstract shapes",
+            "aspect_ratio": "4:3",
+            "creation_date": "2026-01-31",
+            "tags": ["2D", "finance", "data", "abstract"],
+            "code": {
+                "html": "<img src=\"../categiories/2D/finace.svg\" alt=\"Financial Data\">",
+                "react": "<img src=\"../categiories/2D/finace.svg\" alt=\"Financial Data\" />"
+            },
+            "customizable": true
         }
     ]
 }
+    

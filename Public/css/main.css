@@ -281,13 +281,15 @@
             display: flex;
             align-items: center;
             position: relative;
+            width: 100%;
+            max-width: 600px;
         }
 
         .search-overlay {
             position: absolute;
             right: 45px;
             width: 0;
-            overflow: hidden;
+            overflow: visible;
             transition: var(--transition);
             display: flex;
             align-items: center;
@@ -298,7 +300,7 @@
 
         /* Shorter Search Bar as requested */
         .search-container.active .search-overlay {
-            width: 220px;
+            width: 280px;
             padding: 6px 16px;
             border: 1px solid var(--blue-light);
             box-shadow: 0 10px 25px rgba(0,0,0,0.08);
@@ -334,6 +336,77 @@
             background: transparent;
         }
 
+        /* Homepage search results dropdown */
+        .search-results {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: -500px;
+            width: 440px;
+            background: white;
+            border: none;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(15, 76, 117, 0.12);
+            max-height: 420px;
+            overflow-y: auto;
+            z-index: 1200;
+            padding: 12px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .search-result-item {
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            gap: 8px; 
+            padding: 10px; 
+            cursor: pointer; 
+            transition: all 200ms ease;
+            border-radius: 12px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+
+        .search-result-item:hover { 
+            background: #e0f2fe;
+            border-color: var(--blue-mid);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(15, 76, 117, 0.08);
+        }
+
+        .result-thumb { 
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 8px; 
+            object-fit: cover; 
+            background: #f1f5f9;
+            max-width: 100px;
+            max-height: 100px;
+        }
+
+        .result-meta { 
+            display: flex; 
+            flex-direction: column; 
+            width: 100%;
+            gap: 4px;
+            text-align: center;
+        }
+
+        .result-title { 
+            font-weight: 700; 
+            font-size: 0.8rem; 
+            color: var(--dark-1);
+            line-height: 1.2;
+            word-break: break-word;
+        }
+
+        .result-sub { 
+            font-size: 0.7rem; 
+            color: #64748b;
+            font-weight: 500;
+        }
+
         .btn-primary {
             background: var(--dark-2);
             color: white;
@@ -351,6 +424,74 @@
             background: var(--dark-1);
             transform: translateY(-3px);
             box-shadow: 0 15px 30px rgba(15, 76, 117, 0.3);
+        }
+
+        /* --- User Menu --- */
+        .user-menu {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--dark-1);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 800;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .user-avatar:hover {
+            background: var(--dark-2);
+            transform: scale(1.05);
+        }
+
+        .user-dropdown {
+            position: absolute;
+            top: 65px;
+            right: 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(15, 76, 117, 0.15);
+            min-width: 250px;
+            display: none;
+            z-index: 1001;
+            border: 1px solid var(--border);
+        }
+
+        .user-menu:hover .user-dropdown,
+        .user-dropdown.active {
+            display: block;
+        }
+
+        .user-dropdown button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background: var(--dark-1);
+            color: white;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .user-dropdown button:hover {
+            background: var(--dark-2);
+            transform: translateY(-2px);
         }
 
         /* --- Hero --- */

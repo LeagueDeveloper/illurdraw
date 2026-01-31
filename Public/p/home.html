@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studio | Illurdraw</title>
+    <title>Library | Illurdraw</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -89,11 +89,20 @@
                 <ul class="filter-list">
                     <li class="filter-item active" data-filter="all"><i class="fa-solid fa-house"></i> All Items</li>
                     <li class="filter-item" data-filter="2D"><i class="fa-solid fa-layer-group"></i> 2D Design</li>
+                    <li class="filter-item" data-filter="background"><i class="fa-solid fa-image"></i> Background</li>
                     <li class="filter-item" style="cursor:no-drop;"><i class="fa-solid fa-cube"></i> 3D Renders <sup style="font-size: xx-small; color: grey;">comming soon</sup></li>
                     <li class="filter-item" style="cursor: no-drop;"><i class="fa-solid fa-icons"></i> Icons <sup style="font-size: xx-small; color: grey;">comming soon</sup></li>
                     <li class="filter-item" style="cursor: no-drop;"><i class="fa-solid fa-play"></i> Animated <sup style="font-size: xx-small; color: grey;">comming soon</sup></li>
                     <li class="filter-item" data-filter="People"><i class="fa-solid fa-user-group"></i> People</li>
                 </ul>
+            </div>
+            
+
+            <div class="sponser" id="sponsor-section">
+                <button class="sponsor-close" id="sponsor-close-btn" title="Hide for 30 minutes"><i class="fa-solid fa-xmark"></i></button>
+                <h3>Support Us</h3>
+                <p>Your support helps us expand our library and keep the assets free for everyone.</p>
+                <button class="btn btn-primary" onclick="window.open('https://patreon.com/AxiomPlatform', '_blank')"><i class="fa-brands fa-patreon"></i> Become a Patron</button>
             </div>
         </aside>
 
@@ -103,6 +112,7 @@
                 <div class="search-wrapper">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="text" class="search-box" id="search-input" placeholder="Search illustrations...">
+                    <div class="search-suggestions" id="search-suggestions" style="display:none;"></div>
                 </div>
 
                 <div class="right-controls">
@@ -117,7 +127,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="illustration-grid" id="grid">
                 <!-- Cards injected here -->
             </div>
@@ -131,6 +140,7 @@
             <div class="modal-preview">
                 <img src="" alt="" id="m-img">
             </div>
+            
             <div class="modal-info">
                 <div>
                     <h2 id="m-title" style="font-size: 1.5rem; font-weight: 800; margin-bottom: 5px;"></h2>
@@ -157,12 +167,19 @@
                     <div class="code-block" id="cdn-url"></div>
                 </div>
                 <i>
-                <button style="margin-top:auto; background:var(--dark-1); color:white; border:none; padding:16px; border-radius:12px; font-weight:800; cursor:pointer">
-                    Download Asset
-                </button>
-                <button style="margin-top:auto; background:var(--dark-1); color:white; border:none; padding:16px; border-radius:12px; font-weight:800; cursor:pointer">
-                    <i class="fa-thin fa-brush" style="margin-right: 10px; color: #ffffff;"></i>Costomize & Edit
-                </button>
+                <div style="margin-top:auto; display:flex; gap:10px; align-items:center;">
+                    <button id="download-btn" style="background:var(--dark-1); color:white; border:none; padding:16px; border-radius:12px; font-weight:800; cursor:pointer">
+                        Download Asset
+                    </button>
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <button id="customize-btn" class="btn-customize" style="background:var(--dark-1); color:white; border:none; padding:16px; border-radius:12px; font-weight:800; cursor:pointer; display:flex; align-items:center; gap:8px;">
+                            <i class="fa-thin fa-brush" style="margin-right: 0; color: #ffffff;"></i>Customize & Edit
+                        </button>
+                        <button id="customize-info" class="info-btn" title="Customization not available for this asset" style="display:none; background:transparent; border:none; color:var(--text-muted); cursor:help; font-size:1.05rem;">
+                            <i class="fa-solid fa-circle-info"></i>
+                        </button>
+                    </div>
+                </div>
             </i>
             </div>
         </div>

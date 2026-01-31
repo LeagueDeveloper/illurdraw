@@ -1,3 +1,71 @@
+        // Firebase Auth Setup
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+        // Utility function to normalize image URLs
+        window.normalizeImageUrl = function(url) {
+            if (!url) return '';
+            // Remove leading ../ and replace with /Public/
+            return url.replace(/^\.\.\//, '/Public/').replace(/^\.\//, '/Public/');
+        };
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAujjzX5uNYAkMcoWMkaBJ5FtXvkSbSbkk",
+            authDomain: "illurdraw.firebaseapp.com",
+            projectId: "illurdraw",
+            storageBucket: "illurdraw.firebasestorage.app",
+            messagingSenderId: "105766754419",
+            appId: "1:105766754419:web:2006d15005cf4efc8a7206"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Auth State Listener
+        onAuthStateChanged(auth, (user) => {
+            const getStartedBtn = document.getElementById('get-started-btn');
+            const userMenu = document.getElementById('user-menu');
+
+            if (user) {
+                // User is signed in
+                getStartedBtn.style.display = 'none';
+                userMenu.style.display = 'flex';
+
+                // Update user info
+                const name = user.displayName || user.email.split('@')[0];
+                document.getElementById('user-name-nav').innerText = name;
+                document.getElementById('user-email-nav').innerText = user.email;
+
+                // Update avatar
+                if (user.photoURL) {
+                    document.getElementById('user-avatar-btn').innerHTML = `<img src="${user.photoURL}" style="width:100%; height:100%; border-radius:50%; object-fit:cover;" alt="User Avatar">`;
+                } else {
+                    document.getElementById('user-avatar-btn').innerText = name[0].toUpperCase();
+                }
+            } else {
+                // User is signed out
+                getStartedBtn.style.display = 'block';
+                userMenu.style.display = 'none';
+            }
+        });
+
+        // Logout Handler
+        document.getElementById('logout-btn-nav').addEventListener('click', async () => {
+            await signOut(auth);
+            location.reload();
+        });
+
+        // User Avatar Dropdown Toggle
+        document.getElementById('user-avatar-btn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.getElementById('user-dropdown').classList.toggle('active');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', () => {
+            document.getElementById('user-dropdown').classList.remove('active');
+        });
+
         // Smooth Nav Morphing
         const nav = document.getElementById('main-nav');
         window.addEventListener('scroll', () => {
@@ -11,8 +79,24 @@
         // Search Logic - Updated for Shorter Bar
         const searchContainer = document.getElementById('search-container');
         const navLinks = document.getElementById('nav-links');
+        let illustrations = [];
 
-        function toggleSearch() {
+        // Load illustrations from JSON for search
+        async function loadIllustrations() {
+            try {
+                const response = await fetch('../backend/js/json/illustrations.json');
+                if (response.ok) {
+                    const data = await response.json();
+                    illustrations = data.illustrations || [];
+                    console.log('Illustrations loaded:', illustrations.length);
+                }
+            } catch (error) {
+                console.error('Error loading illustrations:', error);
+            }
+        }
+        loadIllustrations();
+
+        window.toggleSearch = function() {
             searchContainer.classList.toggle('active');
 
             // Only fade links on small desktops when search is open
@@ -23,8 +107,49 @@
             }
 
             if(searchContainer.classList.contains('active')) {
-                searchContainer.querySelector('input').focus();
+                const input = document.getElementById('home-search-input');
+                if (input) {
+                    input.focus();
+                    input.oninput = (e) => renderHomeSearchResults(e.target.value);
+                }
             }
+        };
+
+        function renderHomeSearchResults(query) {
+            const resultsBox = document.getElementById('search-results');
+            if (!resultsBox) return;
+            
+            if (!query || !query.trim()) { 
+                resultsBox.style.display = 'none';
+                resultsBox.innerHTML = '';
+                return;
+            }
+            
+            const q = query.toLowerCase();
+            const matches = illustrations.filter(i => 
+                i.title.toLowerCase().includes(q) || 
+                (i.tags && i.tags.some(t => t.toLowerCase().includes(q)))
+            ).slice(0, 6);
+            
+            if (matches.length === 0) {
+                resultsBox.style.display = 'none';
+                return;
+            }
+            
+            resultsBox.innerHTML = matches.map(i => `
+                <div class="search-result-item" onclick="navigateToIllustration(${i.id});">
+                    <img class="result-thumb" src="${normalizeImageUrl(i.url)}" alt="${i.title}" onerror="this.src='/Public/categiories/people/5-people-hugging.png'">
+                    <div class="result-meta">
+                        <div class="result-title">${i.title}</div>
+                        <div class="result-sub">${(i.tags && i.tags.join(', ')) || 'Asset'}</div>
+                    </div>
+                </div>
+            `).join('');
+            resultsBox.style.display = 'block';
+        }
+
+        window.navigateToIllustration = function(id) {
+            window.location.href = `p/home.html?illId=${id}`;
         }
 
         // Nav Toggle for Mobile - toggles the nav-links visibility

@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Customize Illustration | Illurdraw</title>
+  <link rel="stylesheet" href="../css/root.css">
+    <style>
+        :root{
+  --bg:#f7f9fc;
+  --panel:#ffffff;
+  --muted:#6b7280;
+  --text:#0f172a;
+  --soft:#eef2f7;
+  --accent:#2563eb;
+  --radius:14px;
+}
+
+body{
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background:
+    radial-gradient(1200px 500px at top, #f0f6ff, transparent),
+    var(--bg);
+  margin:0;
+  padding:32px;
+  color:var(--text);
+}
+
+.container{
+  max-width:1180px;
+  margin:auto;
+}
+
+h1{
+  font-size:1.3rem;
+  font-weight:800;
+  margin-bottom:4px;
+}
+
+.small{
+  color:var(--muted);
+  font-size:0.9rem;
+}
+
+.editor{
+  display:grid;
+  grid-template-columns: 1fr 360px;
+  gap:28px;
+  margin-top:20px;
+}
+
+/* Canvas */
+.canvas-wrap{
+  position:relative;
+  min-height:480px;
+  border-radius:var(--radius);
+  background:
+    linear-gradient(45deg,#edf1f7 25%,transparent 25%),
+    linear-gradient(-45deg,#edf1f7 25%,transparent 25%),
+    linear-gradient(45deg,transparent 75%,#edf1f7 75%),
+    linear-gradient(-45deg,transparent 75%,#edf1f7 75%);
+  background-size:20px 20px;
+  background-position:0 0,0 10px,10px -10px,-10px 0px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  border:1px solid rgba(15,23,42,0.06);
+}
+
+canvas{
+  background:white;
+  border-radius:12px;
+  box-shadow:0 20px 50px rgba(15,23,42,0.15);
+}
+
+/* Controls panel */
+.controls{
+  background:var(--panel);
+  border-radius:var(--radius);
+  padding:20px;
+  border:1px solid rgba(15,23,42,0.06);
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.controls label{
+  font-size:0.75rem;
+  font-weight:700;
+  letter-spacing:0.03em;
+  text-transform:uppercase;
+  color:#475569;
+}
+
+.meta{
+  font-size:0.95rem;
+  color:var(--muted);
+}
+
+/* Section blocks */
+.controls > div,
+#svg-options{
+  background:var(--soft);
+  padding:14px;
+  border-radius:12px;
+}
+
+/* Inputs */
+input[type="color"],
+input[type="range"]{
+  width:100%;
+  margin-top:8px;
+}
+
+input[type="range"]{
+  accent-color: var(--accent);
+}
+
+/* Buttons */
+button{
+  padding:12px 14px;
+  border-radius:10px;
+  border:none;
+  font-weight:700;
+  cursor:pointer;
+}
+
+#download{
+  background:linear-gradient(90deg,#2563eb,#3b82f6);
+  color:white;
+}
+
+#download-svg{
+  background:#e5edff;
+  color:#1e40af;
+}
+
+#open-in-library{
+  background:#f1f5f9;
+  color:#0f172a;
+}
+
+/* SVG color rows */
+#color-mapping div{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:6px;
+}
+
+#color-mapping .swatch{
+  width:26px;
+  height:20px;
+  border-radius:6px;
+  border:1px solid rgba(0,0,0,0.1);
+}
+
+/* Mobile */
+@media(max-width:900px){
+  .editor{
+    grid-template-columns:1fr;
+  }
+}
+
+    </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Customize Illustration</h1>
+    <div class="small">Quick editor: tint color, opacity and download as PNG.</div>
+
+    <div class="editor">
+      <div class="canvas-wrap" style="position:relative">
+        <div id="editor-loader" class="editor-loader" style="display:none"><img src="/Public/logo&favicon/logo192.png" alt="logo"></div>
+        <div id="svg-wrap" style="display:none;width:100%;height:100%;align-items:center;justify-content:center"></div>
+        <canvas id="editor-canvas" width="600" height="360"></canvas>
+      </div>
+      <div class="controls">
+        <label>Selected Illustration</label>
+        <div id="ill-title" class="meta">Loading...</div>
+
+        <label for="tint">Tint Color</label>
+        <input id="tint" type="color" value="#ffffff">
+
+        <label for="tintOpacity">Tint Opacity</label>
+        <input id="tintOpacity" type="range" min="0" max="1" step="0.01" value="0">
+
+        <label for="scale">Scale</label>
+        <input id="scale" type="range" min="0.2" max="2" step="0.01" value="1">
+
+        <button id="download" title="Download PNG from canvas">Download PNG</button>
+        <button id="download-svg" style="margin-left:8px; display:none;" title="Download SVG source">Download SVG (Beat quality)</button>
+        <div id="svg-options" style="display:none; margin-top:12px;">
+          <label style="display:block; font-weight:700; margin-top:8px;">SVG Customization</label>
+          <div style="margin-top:8px; display:flex; gap:8px; align-items:center;">
+            <label style="font-size:0.85rem">Background</label>
+            <input id="bg-color" type="color" value="#ffffff">
+          </div>
+          <div style="margin-top:8px; display:flex; gap:8px; align-items:center;">
+            <label style="font-size:0.85rem">Stroke Width</label>
+            <input id="stroke-width" type="range" min="0" max="12" step="0.5" value="1">
+          </div>
+          <div id="color-mapping" style="margin-top:10px"></div>
+        </div>
+        <div style="height:10px"></div>
+        <button id="open-in-library" style="background:#e6eefc;color:#0f172a">Open in Library</button>
+        <div class="small" style="margin-top:14px">Tip: Changes are non-destructive locally. Use the "Open in Library" to view the original asset.</div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  // Helper to get query param
+  function getParam(name){
+    const p = new URLSearchParams(window.location.search);
+    return p.get(name);
+  }
+
+  function normalizeImageUrl(url){
+    if(!url) return '';
+    return url.replace(/^\.\.\//, '/Public/').replace(/^\.\//, '/Public/');
+  }
+
+  const illId = getParam('illId');
+  const canvas = document.getElementById('editor-canvas');
+  const ctx = canvas.getContext('2d');
+  const tint = document.getElementById('tint');
+  const tintOpacity = document.getElementById('tintOpacity');
+  const scaleInput = document.getElementById('scale');
+  const titleEl = document.getElementById('ill-title');
+
+  let img = new Image();
+  let originalW = canvas.width, originalH = canvas.height;
+  let currentScale = 1;
+
+  async function loadIllustrationById(id){
+    try{
+      const res = await fetch('../../backend/js/json/illustrations.json');
+      const data = await res.json();
+      const item = data.illustrations.find(x => String(x.id) === String(id));
+      if(!item){ titleEl.innerText = 'Illustration not found'; return; }
+      titleEl.innerText = item.title;
+      const src = normalizeImageUrl(item.url || '');
+      // if SVG, fetch and inline for editing
+      if(src.toLowerCase().endsWith('.svg')){
+        showEditorLoader();
+        try{
+          const r = await fetch(src);
+          if(!r.ok) throw new Error('SVG fetch failed');
+          const svgText = await r.text();
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(svgText, 'image/svg+xml');
+          const svgEl = doc.documentElement;
+          // make sure sizing is reasonable
+          svgEl.setAttribute('preserveAspectRatio','xMidYMid meet');
+          // clear canvas view and show svg wrap
+          document.getElementById('svg-wrap').innerHTML = '';
+          const wrapper = document.getElementById('svg-wrap');
+          wrapper.appendChild(svgEl);
+          wrapper.style.display = 'flex';
+          canvas.style.display = 'none';
+          hideEditorLoader();
+          setupSvgControls(svgEl);
+        }catch(err){
+          console.error(err); titleEl.innerText = 'Failed to load SVG'; hideEditorLoader();
+        }
+        return;
+      }
+      // raster image path (png/jpg)
+      showEditorLoader();
+      canvas.style.display = 'block';
+      document.getElementById('svg-wrap').style.display = 'none';
+      img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = ()=> {
+        // fit to canvas while preserving aspect
+        const cw = canvas.width; const ch = canvas.height;
+        const ar = img.width / img.height;
+        let dw = cw; let dh = cw / ar;
+        if(dh > ch){ dh = ch; dw = ch * ar; }
+        originalW = dw; originalH = dh;
+        currentScale = parseFloat(scaleInput.value) || 1;
+        draw();
+        hideEditorLoader();
+      };
+      img.onerror = ()=>{ titleEl.innerText = 'Failed to load image'; hideEditorLoader(); };
+      img.src = src;
+    }catch(e){ console.error(e); titleEl.innerText = 'Error loading JSON'; }
+  }
+
+  function showEditorLoader(){
+    const l = document.getElementById('editor-loader'); if(l) l.style.display = 'flex';
+  }
+  function hideEditorLoader(){
+    const l = document.getElementById('editor-loader'); if(l) l.style.display = 'none';
+  }
+
+  function clear(){ ctx.clearRect(0,0,canvas.width,canvas.height); }
+
+  function draw(){
+    clear();
+    // center image
+    const dw = originalW * currentScale; const dh = originalH * currentScale;
+    const x = (canvas.width - dw) / 2; const y = (canvas.height - dh) / 2;
+    ctx.drawImage(img, x, y, dw, dh);
+    // tint overlay
+    const color = tint.value || '#ffffff';
+    const op = parseFloat(tintOpacity.value) || 0;
+    if(op > 0){
+      ctx.fillStyle = color;
+      ctx.globalAlpha = op;
+      ctx.fillRect(x, y, dw, dh);
+      ctx.globalAlpha = 1;
+    }
+  }
+
+  // controls
+  tint.addEventListener('input', draw);
+  tintOpacity.addEventListener('input', draw);
+  scaleInput.addEventListener('input', ()=>{ currentScale = parseFloat(scaleInput.value); draw(); });
+
+  document.getElementById('download').addEventListener('click', ()=>{
+    const url = canvas.toDataURL('image/png');
+    const a = document.createElement('a');
+    a.href = url; a.download = (titleEl.innerText || 'illustration') + '.png';
+    document.body.appendChild(a); a.click(); a.remove();
+  });
+
+  document.getElementById('open-in-library').addEventListener('click', ()=>{
+    if(!illId) return;
+    window.location.href = `/Public/p/home.html?illId=${illId}`;
+  });
+
+  if(illId){ loadIllustrationById(illId); } else {
+    titleEl.innerText = 'No illustration selected. Use ?illId=<id> in URL.';
+  }
+
+  // SVG utilities
+  function setupSvgControls(svgEl){
+    const svgOptions = document.getElementById('svg-options');
+    const downloadSvgBtn = document.getElementById('download-svg');
+    svgOptions.style.display = 'block';
+    downloadSvgBtn.style.display = 'inline-block';
+
+    // collect unique fills
+    const fills = new Map();
+    svgEl.querySelectorAll('[fill]').forEach(el => {
+      const f = el.getAttribute('fill');
+      if(!f || f === 'none' || f.startsWith('url(')) return;
+      if(!fills.has(f)) fills.set(f, []);
+      fills.get(f).push(el);
+    });
+
+    const colorMapping = document.getElementById('color-mapping');
+    colorMapping.innerHTML = '';
+    fills.forEach((els, orig) => {
+      const id = 'cm-' + orig.replace(/[^a-z0-9]/gi,'');
+      const row = document.createElement('div');
+      row.style.display = 'flex'; row.style.alignItems = 'center'; row.style.gap = '8px'; row.style.marginTop = '6px';
+      const swatch = document.createElement('div'); swatch.style.width='28px'; swatch.style.height='20px'; swatch.style.borderRadius='6px'; swatch.style.background=orig; swatch.style.border='1px solid #ddd';
+      const input = document.createElement('input'); input.type='color'; input.value = normalizeColorForInput(orig) || '#ffffff'; input.style.marginLeft='6px';
+      const label = document.createElement('div'); label.innerText = orig; label.style.fontSize='0.85rem'; label.style.color='#334155';
+      input.oninput = ()=>{
+        const v = input.value;
+        els.forEach(e=> e.setAttribute('fill', v));
+        swatch.style.background = v;
+      };
+      row.appendChild(swatch); row.appendChild(input); row.appendChild(label);
+      colorMapping.appendChild(row);
+    });
+
+    // background color
+    const bgColor = document.getElementById('bg-color');
+    bgColor.oninput = ()=>{
+      const wrap = document.querySelector('.canvas-wrap');
+      if(wrap) wrap.style.background = bgColor.value;
+    };
+
+    // stroke width
+    const strokeWidth = document.getElementById('stroke-width');
+    strokeWidth.oninput = ()=>{
+      svgEl.querySelectorAll('[stroke]').forEach(el=> el.setAttribute('stroke-width', strokeWidth.value));
+    };
+
+    downloadSvgBtn.onclick = ()=>{
+      const svgStr = new XMLSerializer().serializeToString(svgEl);
+      const blob = new Blob([svgStr], {type: 'image/svg+xml'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = (titleEl.innerText||'illustration') + '.svg'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+    };
+
+    // download PNG from inline svg
+    document.getElementById('download').onclick = ()=>{
+      const svgStr = new XMLSerializer().serializeToString(svgEl);
+      const canvasEl = document.createElement('canvas');
+      const vb = svgEl.viewBox.baseVal;
+      const w = vb && vb.width ? vb.width : svgEl.clientWidth || 800;
+      const h = vb && vb.height ? vb.height : svgEl.clientHeight || 600;
+      canvasEl.width = w; canvasEl.height = h;
+      const img = new Image();
+      img.onload = ()=>{
+        const ctx = canvasEl.getContext('2d'); ctx.fillStyle = (document.querySelector('.canvas-wrap').style.background || '#ffffff'); ctx.fillRect(0,0,w,h);
+        ctx.drawImage(img,0,0,w,h);
+        const url = canvasEl.toDataURL('image/png'); const a = document.createElement('a'); a.href = url; a.download = (titleEl.innerText||'illustration') + '.png'; document.body.appendChild(a); a.click(); a.remove();
+      };
+      img.onerror = (e)=>{ alert('Failed to rasterize SVG for PNG export.'); };
+      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgStr);
+    };
+  }
+
+  function normalizeColorForInput(c){
+    try{
+      if(/^#/.test(c)) return c;
+      // try to compute rgb to hex
+      const ctx = document.createElement('canvas').getContext('2d'); ctx.fillStyle = c; const v = ctx.fillStyle; return v;
+    }catch(e){ return '#ffffff'; }
+  }
+</script>       
+  <script type="module" src="../../backend/js/customize.js"></script>
+</body>
+</html>

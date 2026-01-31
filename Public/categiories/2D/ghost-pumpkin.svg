@@ -1,0 +1,91 @@
+ <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <!-- Ghost Gradient -->
+                <radialGradient id="ghostGradient" cx="50%" cy="50%" r="50%" fx="30%" fy="30%">
+                    <stop offset="0%" style="stop-color:#ffffff" />
+                    <stop offset="90%" style="stop-color:#dbeafe" />
+                    <stop offset="100%" style="stop-color:#bfdbfe" />
+                </radialGradient>
+
+                <!-- Pumpkin Gradient -->
+                <radialGradient id="pumpkinGradient" cx="40%" cy="40%" r="60%">
+                    <stop offset="0%" style="stop-color:#fbbf24" />
+                    <stop offset="50%" style="stop-color:#f59e0b" />
+                    <stop offset="100%" style="stop-color:#d97706" />
+                </radialGradient>
+
+                <!-- Blush Gradient -->
+                <radialGradient id="blushGradient">
+                    <stop offset="0%" style="stop-color:#f472b6; stop-opacity:0.6" />
+                    <stop offset="100%" style="stop-color:#f472b6; stop-opacity:0" />
+                </radialGradient>
+            </defs>
+
+            <!-- Shadow underneath -->
+            <ellipse cx="200" cy="350" rx="80" ry="15" fill="#1a1a2e" opacity="0.4" />
+
+            <!-- Group for Floating Animation -->
+            <g class="ghost-group">
+                
+                <!-- Ghost Body -->
+                <!-- A complex path for the head and wavy bottom -->
+                <path d="M 120 300 
+                         Q 100 300 100 200 
+                         Q 100 80 200 80 
+                         Q 300 80 300 200 
+                         Q 300 300 280 300 
+                         L 280 300
+                         Q 265 320 250 300
+                         Q 235 280 220 300
+                         Q 205 320 190 300
+                         Q 175 280 160 300
+                         Q 145 320 130 300
+                         Z" 
+                      fill="url(#ghostGradient)" stroke="#bfdbfe" stroke-width="2" />
+
+                <!-- Ghost Arms (Back parts to hold pumpkin) -->
+                <ellipse cx="140" cy="240" rx="15" ry="10" fill="#ffffff" />
+                <ellipse cx="260" cy="240" rx="15" ry="10" fill="#ffffff" />
+
+                <!-- Pumpkin (Body) -->
+                <g transform="translate(0, 10)">
+                    <!-- Left Lobe -->
+                    <ellipse cx="170" cy="250" rx="25" ry="35" fill="url(#pumpkinGradient)" />
+                    <!-- Right Lobe -->
+                    <ellipse cx="230" cy="250" rx="25" ry="35" fill="url(#pumpkinGradient)" />
+                    <!-- Center Lobe -->
+                    <ellipse cx="200" cy="255" rx="30" ry="38" fill="url(#pumpkinGradient)" />
+                    
+                    <!-- Stem -->
+                    <path d="M 195 220 Q 200 205 210 210 L 205 220 Z" fill="#65a30d" stroke="#365314" stroke-width="1"/>
+
+                    <!-- Pumpkin Eyes -->
+                    <path d="M 185 245 L 195 245 L 190 255 Z" fill="#78350f" />
+                    <path d="M 215 245 L 205 245 L 210 255 Z" fill="#78350f" />
+                    
+                    <!-- Pumpkin Mouth -->
+                    <path d="M 185 265 Q 200 275 215 265 Q 200 270 185 265 Z" fill="#78350f" />
+                </g>
+
+                <!-- Ghost Hands (Front nubs holding the pumpkin) -->
+                <circle cx="155" cy="250" r="12" fill="#ffffff" />
+                <circle cx="245" cy="250" r="12" fill="#ffffff" />
+
+                <!-- Ghost Face -->
+                <!-- Eyes -->
+                <circle cx="170" cy="180" r="8" fill="#1e293b" />
+                <circle cx="230" cy="180" r="8" fill="#1e293b" />
+                
+                <!-- Eye Highlights -->
+                <circle cx="173" cy="178" r="3" fill="white" />
+                <circle cx="233" cy="178" r="3" fill="white" />
+
+                <!-- Cheeks -->
+                <ellipse cx="160" cy="190" rx="8" ry="5" fill="url(#blushGradient)" opacity="0.8" />
+                <ellipse cx="240" cy="190" rx="8" ry="5" fill="url(#blushGradient)" opacity="0.8" />
+
+                <!-- Mouth -->
+                <path d="M 195 190 Q 200 195 205 190" fill="none" stroke="#1e293b" stroke-width="2" stroke-linecap="round" />
+
+            </g>
+        </svg>
