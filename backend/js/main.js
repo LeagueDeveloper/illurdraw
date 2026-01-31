@@ -5,7 +5,9 @@
         // Utility function to normalize image URLs
         window.normalizeImageUrl = function(url) {
             if (!url) return '';
-            // Remove leading ../ and replace with /Public/
+            // If already starts with /Public/, return as-is
+            if (url.startsWith('/Public/')) return url;
+            // Convert relative paths to /Public/
             return url.replace(/^\.\.\//, '/Public/').replace(/^\.\//, '/Public/');
         };
 

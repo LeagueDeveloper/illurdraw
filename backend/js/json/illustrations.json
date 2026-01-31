@@ -3,7 +3,7 @@
         {
             "id": 1,
             "title": "5-people-hugging",
-            "url": "../categiories/people/5-people-hugging.png",
+            "url": "/Public/categiories/people/5-people-hugging.png",
             "description": "People",
             "aspect_ratio": "16:9",
             "creation_date": "2023-05-10",
@@ -17,7 +17,7 @@
         {
             "id": 2,
             "title": "3-walking-people",
-            "url": "../categiories/people/3-walking-people.png",
+            "url": "/Public/categiories/people/3-walking-people.png",
             "description": "Animated illustrations",
             "aspect_ratio": "9:16",
             "creation_date": "2023-05-11",
@@ -31,7 +31,7 @@
         {
             "id": 3,
             "title": "4-People-Greeting",
-            "url": "../categiories/people/people-greeting.png",
+            "url": "/Public/categiories/people/people-greeting.png",
             "description": "People greeting each other",
             "aspect_ratio": "16:9",
             "creation_date": "2023-05-12",
@@ -44,7 +44,7 @@
         },{
             "id": 4,
             "title": "3-People-discussing",
-            "url": "../categiories/people/3-people-discussing.png",
+            "url": "/Public/categiories/people/3-people-discussing.png",
             "description": "Business Meeting",
             "aspect_ratio": "16:9",
             "creation_date": "2023-05-13",
@@ -58,7 +58,7 @@
         {
             "id": 5,
             "title": "Flame-bg",
-            "url": "../categiories/bg/bg-flame.png",
+            "url": "/Public/categiories/bg/bg-flame.png",
             "description": "Flame background",
             "aspect_ratio": "16:9",
             "creation_date": "2023-05-14",
@@ -72,7 +72,7 @@
         {
             "id": 6,
             "title": "gradient-bg-dots",
-            "url": "../categiories/bg/bg-gradient-dots.png",
+            "url": "/Public/categiories/bg/bg-gradient-dots.png",
             "description": "Gradient dots background",
             "aspect_ratio": "16:9",
             "creation_date": "2023-05-15",
@@ -86,7 +86,7 @@
         {
             "id": 7,
             "title": "light-rainbow",
-            "url": "../categiories/bg/bg-light-rainbow.png",
+            "url": "/Public/categiories/bg/bg-light-rainbow.png",
             "description": "Light rainbow background",
             "aspect_ratio": "16:9",
             "creation_date": "2023-05-16",
@@ -100,7 +100,7 @@
         {
             "id": 8,
             "title": "shapes-colors-bg",
-            "url": "../categiories/bg/bg-p,g,r-blue-shapes.png",
+            "url": "/Public/categiories/bg/bg-p,g,r-blue-shapes.png",
             "description": "Abstract waves background",
             "aspect_ratio": "16:9",
             "creation_date": "2023-05-17",
@@ -114,7 +114,7 @@
         {
             "id": 9,
             "title": "Perple-red-glassy-bg",
-            "url": "../categiories/bg/bg-perple-red-glass.png",
+            "url": "/Public/categiories/bg/bg-perple-red-glass.png",
             "description": "Perple red glassy background",
             "aspect_ratio": "16:9",
             "creation_date": "2023-05-18",
@@ -128,7 +128,7 @@
         {
             "id": 10,
             "title": "strokes-green-yellow-bg",
-            "url": "../categiories/bg/bg-strokes-green-yellow.png",
+            "url": "/Public/categiories/bg/bg-strokes-green-yellow.png",
             "description": "Green and yellow strokes background",
             "aspect_ratio": "16:9",
             "creation_date": "2023-05-19",
@@ -142,7 +142,7 @@
         {
             "id": 11,
             "title": "sunset-landscape-bg",
-            "url": "../categiories/bg/bg-sunset-landscape.png",
+            "url": "/Public/categiories/bg/bg-sunset-landscape.png",
             "description": "Sunset landscape background",
             "aspect_ratio": "16:9",
             "creation_date": "2023-05-20",
@@ -157,7 +157,7 @@
         {
             "id": 12,
             "title": "ghost-pumpkin",
-            "url": "../categiories/2D/ghost-pumpkin.svg",
+            "url": "/Public/categiories/2D/ghost-pumpkin.svg",
             "description": "Cute Halloween ghost holding a carved pumpkin",
             "aspect_ratio": "4:3",
             "creation_date": "2026-01-31",
@@ -171,7 +171,7 @@
         {
             "id": 13,
             "title": "graph-finance",
-            "url": "../categiories/2D/finace.svg",
+            "url": "/Public/categiories/2D/finace.svg",
             "description": "Financial data visualization with abstract shapes",
             "aspect_ratio": "4:3",
             "creation_date": "2026-01-31",
