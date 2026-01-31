@@ -34,7 +34,7 @@ let illustrationsCache = null;
 async function loadIllustrations() {
   if (illustrationsCache) return illustrationsCache;
   try {
-    const response = await fetch('./backend/js/json/illustrations.json');
+    const response = await fetch('https://illurdraw.vercel.app/backend/js/json/illustrations.json');
     const data = await response.json();
     illustrationsCache = data.illustrations || [];
     return illustrationsCache;

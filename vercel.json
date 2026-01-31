@@ -1,0 +1,56 @@
+{
+  "buildCommand": "echo 'Static site - no build needed'",
+  "outputDirectory": "Public",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/backend/js/:path*",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/javascript; charset=utf-8"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    },
+    {
+      "source": "/backend/js/json/:path*",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/p/(.*)",
+      "destination": "/p/$1"
+    },
+    {
+      "source": "/backend/(.*)",
+      "destination": "/backend/$1"
+    },
+    {
+      "source": "/costomization/(.*)",
+      "destination": "/costomization/$1"
+    },
+    {
+      "source": "/categiories/(.*)",
+      "destination": "/categiories/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

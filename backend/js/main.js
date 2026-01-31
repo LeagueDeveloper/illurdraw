@@ -151,7 +151,7 @@
         }
 
         window.navigateToIllustration = function(id) {
-            window.location.href = `p/home.html?illId=${id}`;
+            window.location.href = `public/p/home.html?illId=${id}`;
         }
 
         // Nav Toggle for Mobile - toggles the nav-links visibility
